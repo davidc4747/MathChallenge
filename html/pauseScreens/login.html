@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<div id="login" class="tab-content" ng-controller="LoginController">
+    <h1 class="tab-content-h1">Log in</h1>
+    <form ng-submit="attemptLogin()">
+        <input id="txt-user-name" class="control-txt" type="text" placeholder="UserName" ng-model="userName" />
+        <input id="txt-password" class="control-txt" type="password" placeholder="Password" ng-model="password"  />
+        <input id="btn-register" class="btn control-btn" type="button" value="Register" ng-click="pauseManager.showRegister()" />
+        <input id="btn-login" class="btn control-btn" type="submit" value="Login" />
+    </form>
+    <a class="link-forgot-pass" href="#" ng-click="pauseManager.showForgotPass()">Forgot password??</a>
+    <div ng-class="{'error': Mess != ''}">{{ Mess }}</div>
+</div>  
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<div id="history" class="tab-content">
+    
+    <ul id="games" ng-controller="HistoryController">
+        <li class="game" ng-repeat="game in games track by game.Game_Id" ng-class="{'active': game.isOpen }">
+            <div class="game-head" ng-click="expand(game)">
+                <div class="left">
+                    <h3 class="game-name">{{game.GameType_Name | capitalize}}<span class="game-grade">{{game.Grade}}</span></h3>
+                    <div class="game-score">{{game.TotalScore | number}}</div>
+                </div>
+
+                <div class="right">
+                    <div class="question-stats">
+                        <div class="incorrect">{{game.Incorrect}}</div>
+                        <div class="correct">{{game.Correct}}</div>
+                        <div class="timeout">{{game.Timeout}}</div>
+                    </div>
+                    <div class="game-date">{{game.StartTime}}</div>
+                </div>
+            </div>
+            <div class="game-body">
+                <div class="game-stats game-stats-{{game.Game_Id}}">
+                    <div class="total-questions">{{game.TotalQuestions | number}}</div>
+                    <div class="total-time">{{game.TotalTime / 60 | number: 2}}</div>
+                    
+                    <div class="stars">
+                        <img class="star" ng-src="images/star/star{{game.Stars}}.png" ng-repeat="star in game.starRange" />
+                    </div>
+                    <div class="game-energy">{{game.EnergyGained}}</div>
+
+                    <table class="stat-table">
+                        <thead>
+                            <tr>
+                                <th> </th>
+                                <th>Score</th>
+                                <th>Multiplier</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Best: </td>
+                                <td>{{game.MaxScore | number}}</td>
+                                <td>{{game.MaxMulti | number}}</td>
+                                <td>{{game.MinTime | number}}</td>
+                            </tr>
+                            <tr>
+                                <td>Average: </td>
+                                <td>{{game.AvgScore | number: 2}}</td>
+                                <td>{{game.AvgMulti | number: 2}}</td>
+                                <td>{{game.AvgTime | number: 2}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="game-chart game-chart-{{game.Game_Id}}"></div>
+            </div>
+        </li>
+
+    </ul>  
+
+</div>
+

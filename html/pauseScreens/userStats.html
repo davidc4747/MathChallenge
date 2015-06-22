@@ -1,0 +1,10 @@
+<div class="user-stats-ctrl" ng-controller="UserStatsController">
+    <a class="back-to-profile" href="#" ng-click="backToProfile()">Back to profile</a>
+    <ul class="user-stats">
+        <li class="user-stat" ng-repeat="(key, value) in user">
+            <div class="stat-key">{{key}}:</div>
+            <div class="stat-value" ng-bind-html="trust(value.toString())"></div> 
+        </li>
+    </ul>
+</div>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<div id="friends" class="tab-content" ng-controller="FriendController" ng-click="selectFriend()">
+    
+    <ul id="friend-list">
+        
+        <li id="friends-header">{{ (!isSearching) ? 'Friends List' : 'Search for: ' + friendSearch }}</li>
+        
+        
+        <li class="friend-card" id="friend-{{friend.User_Id}}" friend-card
+            ng-repeat="friend in friends | orderBy: 'UserName'">
+            
+            <img class="friend-avatar" ng-src="{{friend.Avatar}}" />
+            <h3 class="friend-name">
+                {{friend.UserName}}
+                <div class="stars">
+                    <img class="star" ng-src="images/star/star{{friend.Stars / 2 | number:0}}.png" 
+                         ng-repeat="star in friend.starRange" />
+                </div>
+            </h3>
+            <div class="friend-status">
+                {{friend.UserStatus_Name | capitalize}}
+                <div class="btn btn-remove-friend" ng-hide="isSearching" ng-click="deleteFriend(friend)"></div>
+                <div class="btn btn-add-friend" ng-show="isSearching" ng-click="sendRequest(friend)"></div>            
+            </div>            
+        </li>
+        
+        
+        
+        <li class="friend-divider pause-header"
+            ng-show="receivedRequests.length + sentRequests.length > 0">Pending request</li>
+        
+        
+        
+        <li class="min received-request" id="friend-{{friend.User_Id}}" friend-card
+            ng-repeat="friend in receivedRequests | orderBy: UserName">
+            
+            {{friend.UserName}}
+            <i class="fa fa-times btn-request btn-request-decline" title="Decline {{friend.UserName}}'s friend request"
+               ng-click="declineRequest(friend)"></i>
+            <i class="fa fa-check btn-request btn-request-accept" title="Accept {{friend.UserName}}'s friend request"
+               ng-click="acceptRequest(friend)"></i>
+        </li>
+        
+        <li class="min sent-request" id="friend-{{friend.User_Id}}" friend-card
+            ng-repeat="friend in sentRequests | orderBy: UserName">
+            
+            {{friend.UserName}}
+            <i class="fa fa-times btn-request" title="Delete friend request to {{friend.UserName}}"
+               ng-click="deleteRequest(friend)"></i>
+        </li>
+        
+    </ul>
+    
+    <form>
+        <input class="txt-search" type="text" maxlength="50" ng-model="friendSearch" ng-change="searchUser()">
+        <div class="btn btn-search" value="search" type="submit"></div>
+    </form>
+</div>
+

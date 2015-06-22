@@ -1,0 +1,71 @@
+//    Created on : Apr 8, 2015, 3:18:20 PM
+//    Author     : dhenry
+
+//Colors
+$infoBarAfterColor: $white;
+$correct: $green;
+$incorrect: $red;
+$timeout: $black;
+
+$timer: $black;
+$lives: $red;
+
+/***Game Bar***/
+#game-bar
+{
+    width: 100%;
+    height: 17px;
+    overflow: hidden;
+    margin-bottom: 4px;
+    border-radius: 3px; 
+    background-color: gray;
+    > *
+    {
+        position: relative;
+        float: left;
+        height: 100%;  
+
+        @include transition(all 0.35s);
+        
+        &:after
+        {
+            content: attr(data-text);
+            position: absolute;
+            left: 3px;
+
+            color: $infoBarAfterColor;
+            font-size: 16px;
+            height: 10px
+
+        }
+    }
+    
+    #correct 
+    { 
+        width: 49%;
+        background-color: $correct; 
+    }
+    #timeout 
+    { 
+        width: 2%;
+        background-color: $timeout; 
+    }
+    #incorrect 
+    { 
+        width: 49%;
+        background-color: $incorrect; 
+    }
+    
+    #timer, #lives
+    {
+        width: 100%;
+        border-right: 2px solid $lightGrey;    
+
+        @extend %box-border;
+    }
+    #timer { background-color: $timer; }
+    #lives { background-color: $lives; }
+    
+}
+
+

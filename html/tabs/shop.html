@@ -1,0 +1,52 @@
+<div id="shop" class="tab-content" ng-controller="ShopController" ng-click="preview(null)">
+    
+    <ul class="shop-list pause-list">
+        <li class="item-section" ng-repeat="itemSection in itemSectionData">
+            
+            <div class="pause-header">{{itemSection.title + 's' | capitalize}}</div>
+            <div class="item-list">
+                <div class="item" ng-repeat="item in itemSection.data"
+                    ng-class="{'active': item.isActive}" ng-click="$event.stopPropagation(); preview(item)">
+
+                    <img class="item-img" ng-src="{{item.Item_Img}}" />
+                    <div class="item-price">{{item.Price | number}}</div>
+
+                </div>
+            </div>
+            
+        </li>
+    </ul>
+    
+    <div class="preview" ng-class="{'show': showPreview}">
+        
+        <i class="fa preview-toggle" 
+           ng-class="(!showPreview) ? 'fa-eye' : 'fa-eye-slash'" 
+           ng-click="preview(null)"> {{(!showPreview) ? 'Show Preview' : 'Hide Preview'}}</i>
+        
+        <img class="preview-img" ng-src="{{previewItem.Item_Img}}" />
+        <h3 class="preview-name">{{previewItem.Item_Name}}</h3>
+        <div class="preview-price">{{ (previewItem.Price * quantity) || 0 | number: 0}}</div>
+        <p class="preview-descrip" ng-show="previewItem.Descrip != null">{{previewItem.Descrip}}</p>
+        
+        <form class="shop-form">
+            <div class="quantity" ng-show="previewItem.BuyMultipleYN == '1'">
+                <h5 class="quantity-lbl">Quantity: </h5>
+                <input class="preview-txt control-txt" type="number" name="preview-txt"
+                       min="0" max="{{previewItem.MaxCount - previewItem.Count}}"
+                       ng-model="quantity"/>
+            </div>
+
+            <input class="preview-btn btn control-btn" type="submit" name="preview-btn"
+                value="{{!previewItem.isMax ? 'buy' : previewItem.MaxType | capitalize}}" 
+                ng-class="!previewItem.isMax ? 'btn-buy' : 'btn-' + previewItem.MaxType"
+                ng-click="buy(previewItem)"/>
+
+            <div class="shop-info">
+                <div>Current energy: <div class="energy">{{curEnergy}}</div></div>
+                <div>You own: <div class="energy">{{previewItem.Count || 0}}</div></div>                
+            </div>
+        </form>
+        
+    </div>
+    
+</div>

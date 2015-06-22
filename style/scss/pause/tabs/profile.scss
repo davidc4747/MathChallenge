@@ -1,0 +1,334 @@
+//    Created on : Apr 14, 2015, 10:06:53 AM
+//    Author     : David Chung
+
+/***Pause -Profile-***/
+#profile.tab-content
+{    
+    padding: 0.5em;
+    padding-bottom: 0;
+}
+
+/**User**/
+#user
+{
+    float: left;
+    margin-bottom: 0.4em;
+    width: 60%;
+}
+
+/**User Card**/
+#user-card
+{
+    overflow: hidden;
+    box-shadow: 0 0 20px $black;
+    
+    width: 100%;
+    
+    background-color: $lightGrey;
+    @include simple-gradient(lighten($lightGrey, 5%), $lightGrey);
+    
+    @extend %box-border;
+    
+    .stars
+    {
+        margin-top: -1em;
+        height: 1.5em;
+    }
+}
+
+.user-card-head
+{    
+    @extend .pause-header;    
+    margin-bottom: 0.2em;
+}
+
+#user-avatar
+{
+    float: left;
+    border: 2px solid $black;
+    margin: 0.5em 0.7em 0.5em 0.3em;
+    
+    height: 6em;
+    min-width: 90px;
+    
+    background-color: $lightBlack;
+    border-radius: 10px;
+}
+
+#user-stats
+{
+    padding-left: 0.5em;
+}
+
+.stars
+{
+    height: 0.9em;
+}
+.star
+{
+    height: 100%;
+}
+
+#user-name
+{    
+    margin: 0;
+    padding-bottom: 0.3em;
+}
+#points-earned
+{
+    &:before { content: 'Points Earned: '; }
+}
+#date-joined
+{
+    font-size: 0.9em;
+    &:before { content: 'Date Joined: '; }
+}
+#energy
+{
+    font-size: 0.9em;
+    &:before { content: 'Energy: '; }
+    
+}
+.stat-link
+{
+    float: right;
+    margin-top: -1em;
+    margin-right: 0.3em;
+    
+    color: $blue;
+    cursor: pointer;
+    
+    font-size: 0.9em;
+    text-decoration: underline;    
+}
+
+/**User Body**/
+.user-body
+{
+    overflow: hidden;
+    margin-top: 0.3em;
+    padding: 0.5em;
+    border-radius: 6px;
+    border: 1px solid $darkGrey;
+    
+    width: 100%;
+    min-height: 60px;
+    
+    background-color: $lightGrey;
+    @include simple-gradient(lighten($lightGrey, 5%), $lightGrey);
+    
+    @extend %box-border;
+    
+    &:before
+    {
+        float: left;
+        
+        margin-bottom: 0.3em;
+        border-bottom: 1px solid $darkGrey;
+        
+        width: 100%;
+        
+        font-weight: bold;
+    }
+}
+
+/*Acheviements*/
+#achievement-box
+{
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+    > img
+    {
+        float: left;
+        padding: 0 0.2em;
+        height: 1.2em;        
+    }
+    
+    &:before{content: 'Acheviements (' attr(data-count) ')';}
+}
+/*Recent*/
+#recent
+{
+    overflow: hidden;
+    margin-bottom: 0;
+    
+    > img
+    {
+        float: left;
+        padding: 0 0.2em;
+        height: 1.7em;        
+    }
+    
+    &:before{content: 'Recent Activity';}
+    img+img
+    {
+        border-left: 1px solid $darkGrey;       
+    }
+}
+
+
+/**Partition**/
+#partition 
+{
+    float: right;
+    overflow: hidden;
+    
+    margin-top: 0.5em;
+    
+    width: 37%;
+    height: 12em; 
+    
+    position: relative;
+    
+}
+
+.tooltip
+{
+    position: absolute;
+    
+    padding: 0.1em 0.3em;
+    border: 1px solid grey;
+    border-radius: 5px;
+    
+    text-align: center;
+    background-color: $lightGrey;
+}
+
+.explanation
+{
+    @extend %center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+}
+.chart-head
+{
+    margin: 0.3em;
+}
+
+
+/**Game Type Summ**/
+#game-type-summary
+{
+    overflow: hidden;
+    
+    padding-bottom: 1em;
+    margin: 0;
+    border-top: 1px solid $darkGrey;
+    border-radius: 10px 10px 0 0;
+    
+    width: 100%;
+    
+    position: relative;
+    
+    text-align: center;
+    @include simple-gradient(lighten($lightGrey, 10%), $white);    
+    @extend %box-border;
+    
+}
+.game-type
+{        
+    float: left;
+    width: 33%;
+    position: relative;
+    @extend %box-border;
+}
+
+.game-type-head
+{
+    margin-bottom: -2.4em;
+    position: relative;
+}
+.crown
+{    
+    width: 75%;
+}
+.game-type-stats
+{    
+    padding-top: 1.3em;
+    
+    position: absolute;
+    
+    opacity: 0;
+    z-index: 10;
+    text-shadow: 0 0 10px #fff;
+    
+    @extend %center;
+    @include transition('opacity 0.3s, text-shadow 0.3s');
+    
+    &:hover
+    {
+        opacity: 1;        
+    }
+}
+
+.game-type-body
+{
+    padding: 0.3em 0;
+    margin:  0 0.3em;
+    border: 1px solid $darkGrey;
+    border-radius: 6px;
+    
+    background-color: lighten($lightGrey, 10%);
+    @include simple-gradient(lighten($lightGrey, 8%), lighten($lightGrey, 5%));
+    
+    > *
+    {
+        position: relative;
+        z-index: 5;
+    }
+}
+.game-type-title
+{
+    padding: 0;
+    margin: 0.3em;
+    
+    font-size: 1em;
+}
+
+
+
+/***User Stats***/
+.user-stats-ctrl
+{
+    img
+    {
+        width: 100px;
+    }
+}
+.back-to-profile
+{
+    margin: 0.5em;
+    position: absolute;
+}
+
+.user-stats
+{
+    margin: 0 auto;
+    padding: 2em 0.3em;
+    
+    width: 65%;
+    
+    list-style-type: none;
+}
+.user-stat
+{
+    padding: 0.3em 0;
+    overflow: hidden;
+}
+.stat-key
+{
+    float: left;
+    width: 50%;
+    
+    color: blue;
+    text-align: right;
+}
+.stat-value
+{
+    float: left;
+    margin-left: 0.5em;
+}

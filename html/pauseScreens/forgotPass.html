@@ -1,0 +1,11 @@
+<div id="forgotPass" class="tab-content" ng-controller="ForgotController">   
+    <h2 class="tab-content-h1 forgot-head">Recover password</h2>
+    <form ng-submit="sendEmail()">
+        <div class="control-group">
+            <input class="control-txt" type="text" maxlength="50" placeholder="Enter your username" ng-model="name" />
+        </div>
+        <input class="btn control-btn" type="submit" value="Submit"/>
+    </form>
+    <a href="#" ng-click="pauseManager.showLogin()">Back to login</a>
+    <div ng-class="(mess.Text != '') ? mess.Type : ''">{{ mess.Text }}</div>
+</div>

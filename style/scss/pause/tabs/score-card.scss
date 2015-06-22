@@ -1,0 +1,235 @@
+//    Created on : Apr 8, 2015, 11:48:51 AM
+//    Author     : David Chung
+
+//Colors 
+$divider: $darkGrey;
+$highBackground: $lightGrey;
+$highCurrent: #9edae5;
+
+$quesHead: $darkGrey;
+$quesBody: $lightGrey;
+$quesCorrect: $green;
+$quesIncorrect: $red;
+$quesTimeout: $black;
+
+
+/***Score Card***/
+#score-card.tab-content
+{
+    padding: 0.5em;
+}
+
+#score-card .left 
+{
+    width: 30%;
+    @extend %box-border; 
+}
+#score-card .right 
+{
+    width: 68%;
+    padding: 0.5em;
+    margin-left: -1px;
+    border-left: 1px dashed $divider; 
+    
+    @extend %box-border;
+}
+
+/**Grade charts**/
+#grade
+{
+    float:left;
+    height: 12em;
+    width: 100%;
+}
+
+/**High Score**/
+#high-scores
+{    
+    margin: 0;
+    padding: 0;
+    padding-top: 0.5em;
+        
+    width: 100%;
+    min-height: 12em;
+    
+    text-align: center; 
+    list-style-position:inside;
+    
+    &:before
+    { 
+        content: 'High Scores';
+
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    li
+    {
+        margin: 0.4em;
+        border-radius: 5px;
+        
+        width: 100%;
+        
+        font-size: 1.2em;
+        background-color: $highBackground;
+        &.active
+        {
+            background-color: $highCurrent;
+        }
+    }
+}
+
+/**Question Stat Chart**/
+#question-stats
+{
+    margin: 0.5em auto;
+    
+    width: 96%;
+    height: 2em;
+    
+    svg
+    {
+        float: right;
+        overflow: hidden;
+        border-radius: 10px;    
+    }
+}
+
+/**text info**/
+#final-score
+{
+    margin: 0;
+    
+    text-align: center;
+    font-size: 5em;
+    font-weight: normal;
+}
+
+.calc-stats
+{   
+    overflow: hidden;
+    padding: 0 0.5em;
+    margin: 0 auto;
+    border-radius: 10px;
+    width: 50%;
+    background-color: $darkGrey;
+    
+    .energy
+    {
+        float: left;
+        margin: 0.2em 0;
+        color: $blue;
+        &:before
+        {
+            content: '+';
+        }
+    }
+    
+    .stars
+    {
+        float: right;
+        height: 1.4em;
+    }
+}
+
+#score-card.tab-content .total-time
+{
+    margin: 0;
+    
+    text-align: center;
+    font-size: 2em;
+    font-weight: normal;
+}
+#best-stats
+{
+    overflow: hidden;
+    > *
+    {
+        float: left;
+        margin: 0;
+        
+        width: 32%;
+        
+        text-align: center;
+        font-size: 1em;
+        font-weight: normal;
+    }
+}
+#best-time:after { content: 'sec'; }
+#best-score:after { content: 'pts'; }
+#best-multi:after { content: 'x'; }
+
+
+
+/**Questions**/
+%answer-background
+{
+    content: '';
+    margin-right: -30px;
+    
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 3px 18px;
+    
+    width: 0;
+    height: 0; 
+}
+
+#questions
+{
+    display: block;
+    padding: 0;
+    
+    * { display: block; }
+    
+    tbody, thead, tr
+    {
+        width: 100%;
+    }
+    td, th
+    {
+        float: left;
+    }
+    
+    thead { overflow: hidden; }
+    th
+    {
+        padding: 0.2em;
+        margin: 0.1em;
+        width: 47.5%;
+
+        background-color: $quesHead;
+        border-radius: 3px;
+        @extend %box-border;
+    }
+    
+    tbody
+    {
+        overflow: auto;
+
+        max-height: 7.1em;
+    }
+    td
+    {    
+        padding: 0.5em;
+        width: 45%;
+
+        border-radius: 3px;
+        @extend %box-border;
+    }
+    .correct:before
+    {
+        @extend %answer-background;
+        border-color: $quesCorrect;
+    }
+    .incorrect:before
+    {
+        @extend %answer-background;
+        border-color: $quesIncorrect;
+    }
+    .timeout:before
+    {
+        @extend %answer-background;
+        border-color: $quesTimeout;
+    }
+}
+

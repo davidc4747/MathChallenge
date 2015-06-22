@@ -1,0 +1,55 @@
+//    Created on : Apr 8, 2015, 11:48:10 AM
+//    Author     : David Chung
+
+//Colors
+$pauseBackground: $white;
+$loginWarning: $red;
+
+@import "overlay.scss";
+
+/***Pause***/
+#pause
+{
+    @extend #wrapper;
+
+    margin-top: 1%;
+    border-radius: 1em;
+    
+    overflow: hidden;
+    background-color: $pauseBackground;
+    
+    position: absolute;
+    left: 50%;
+        
+    height: 30em;
+    max-height: 100%;
+        
+    @include translate(-50%);
+}
+
+#user-info
+{
+    padding: 0.5em 0;
+    position: absolute;
+    bottom: 0;
+    right: 2em;
+}
+
+/**login Warning**/
+.login-warning
+{
+    
+    font-size: 2.4em;
+    a
+    {
+        text-decoration: underline;
+        color: darken(yellow, 20%);
+    }
+    a:hover
+    {
+        cursor: pointer;
+    }
+}
+
+@import "tabs/tabs";
+

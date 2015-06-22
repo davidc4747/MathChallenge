@@ -1,0 +1,21 @@
+<div id="register" class="tab-content" ng-controller="RegisterController">
+    <h1 class="tab-content-h1 register-head">Register</h1>
+    <form ng-submit="register()">
+        <div class="control-group">
+            <label class="">Username</label>
+            <input class="control-txt" type="text" maxlength="15" ng-model="user.name" />
+        </div>
+        <div class="control-group">
+            <label class="">Password</label>
+            <input class="control-txt" type="password" maxlength="25" ng-model="user.pass" />
+        </div>
+        <div class="control-group">
+            <label class="">Confirm Password</label>
+            <input class="control-txt" type="password" maxlength="25" ng-model="user.confirmPass" />
+        </div>
+        <input class="btn control-btn" type="submit" value="Register"/>
+    </form>
+    <div class="have-account">Already have an account? <a href="#" ng-click="pauseManager.showLogin()">login</a></div>
+    <div ng-class="(mess.Text != '') ? mess.Type : ''">{{ mess.Text }}</div>
+</div>
+

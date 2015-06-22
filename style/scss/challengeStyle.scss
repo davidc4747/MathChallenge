@@ -1,0 +1,59 @@
+/**
+ * Created on : Apr 8, 2015, 10:28:01 AM
+ * Author     : David G Chung
+ * 
+ * TABLE_OF_CONTENTS
+ * 
+ * GENERAL
+ * colors.scss
+ * css3.scss
+ * 
+ * MAIN_SCREEN
+ * main.scss
+ * top-bar.scss
+ * info-bar.scss
+ * grid.scss
+ * bot-bar.scss
+ * 
+ * SCREENS
+ * home.scss
+ * 
+ * PAUSE
+ * overlay.scss
+ * pause.scss
+ * 
+ * PAUSE_TABS
+ * login.scss
+ * score-card.scss
+ * pause-menu.scss
+ * profile.scss
+ * 
+**/
+
+@import "colors.scss";
+@import "css3.scss"; 
+
+/***Body, wrapper***/
+body
+{
+    height: 100vh;
+    
+    background-color: $blue;
+    font-family: 'Open Sans', sans-serif;
+    
+    @include transition(all 0.35s ease);
+}
+
+#wrapper
+{
+    margin: 0 auto;
+    margin-top: 2%;
+    
+    position: relative;
+    
+    width: 100%;
+    max-width: 40em;
+}
+
+@import "main/main";
+@import "pause/pause";

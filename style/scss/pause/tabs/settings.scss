@@ -1,0 +1,90 @@
+//    Created on : Apr 17, 2015, 11:27:20 AM
+//    Author     : David Chung
+
+/***Pause -Settings-***/
+#settings.tab-content
+{
+    padding: 0.5em;
+}
+
+.settings-section
+{
+    margin-top: 1em;
+    padding-bottom: 1em;
+    border-bottom: 1px dashed $lightGrey;    
+}
+
+.control-group
+{
+    margin: 0.5em 0;
+}
+.control-label
+{
+    float: left;
+    margin: 0.3em 1em 0.3em 0;
+    width: 38%;
+    text-align: right;
+    @extend %box-border;
+}
+.control-txt
+{
+    padding: 0.3em;
+    border: 1px solid $darkGrey;
+    border-radius: 3px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.08);
+    @extend %box-border;
+}
+.control-btn
+{
+    margin-left: 40%;
+    @include calc('margin-left', '38% + 1em');
+    
+    padding: 0.3em;
+    border: 1px solid $darkGrey;
+    border-radius: 3px;
+    
+    width: 13.6em;
+    
+    @include simple-gradient(lighten($lightGrey, 8%), $lightGrey);
+    @extend %box-border;
+}
+
+.message
+{
+    margin: 0.3em 0;
+    text-align: center;
+    
+    &:before
+    {
+        font-family:'FontAwesome';
+        margin-right: 0.3em;
+    }
+}
+.error
+{
+    @extend .message;
+    
+    color: $red;
+    &:before{content: '\f057';}
+}
+.warning
+{
+    @extend .message;
+    
+    color: darken(yellow, 10%);
+    &:before{content: '\f071';}
+}
+.info
+{
+    @extend .message;
+    
+    color: #00529B;
+    &:before{content: '\f05a';}
+}
+.success 
+{
+    @extend .message;
+    
+    color: $green;
+    &:before{content: '\f058';}
+}

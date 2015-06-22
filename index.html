@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="mathChallenge">
+    <head>
+        <title>Math Challenge</title>
+        
+        <!--Web app ready-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />        
+        <meta name="moblie-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-moblie-web-app-status-bar-style" content="black-translucent" />        
+        <link name="apple-touch-icon-precomposed" href="~~.png" />
+        
+        <!--Styles-->
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">        
+        <link rel="stylesheet" media="all" href="style/css/challengeStyle.css" />
+        <link rel="stylesheet" media="(max-width:34.375em)" href="style/css/mobile/mobile-600.css">
+        <link rel="stylesheet" media="(max-width:17.188em)" href="style/css/mobile/mobile-275.css">
+        <link rel="stylesheet" media="(min-width:17.189em) and (max-width:21.874em)" href="style/css/mobile/mobile-350.css">
+        <link rel="stylesheet" media="(min-width:21.875em) and (max-width:28.125em)" href="style/css/mobile/mobile-450.css">
+        <link rel="stylesheet" media="(min-width:28.126em) and (max-width:34.375em)" href="style/css/mobile/mobile-550.css">
+        
+        <!--Scripts-->
+        <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="//code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js" charset="utf-8"></script>       
+        
+        <script type="text/javascript" src="js/GameTypes/Game.js"></script>
+        <script type="text/javascript" src="js/GameTypes/Endless.js"></script>
+        <script type="text/javascript" src="js/GameTypes/Blitz.js"></script>
+        <script type="text/javascript" src="js/GameTypes/Survival.js"></script>        
+                        
+        <script type="text/javascript" src="js/Database/Objects.js"></script>
+        
+        <script type="text/javascript" src="js/angular/apps/apps.js"></script>
+        <script type="text/javascript" src="js/angular/controllers/controllers.js"></script>
+    </head>
+    
+    <body style="background-color: {{backgroundColor}}">
+        
+        <div id="overlay" ng-controller="PauseController" ng-class="{'hide': isHidden}" ng-click="hide()">
+            <div id="pause" ng-click="$event.stopPropagation()">
+                
+                <div id="mini-bar" ng-click="showMenu = !showMenu">
+                    <div class="left">Menu</div>
+                    <i class="fa fa-times right" ng-click="$event.stopPropagation(); hide()"></i>
+                </div>
+                <input type="checkbox" id="show-menu" role="button" ng-model="showMenu">
+                <ul id="tabs">
+                    <li ng-repeat="tab in tabsArray" for="show-menu"
+                        class="tab {{tab.class}}" title="{{tab.title}}" 
+                        ng-class="{'active': tab.isActive, 'enabled': enabled}" ng-click="show(tab)"></li>
+                </ul>
+                
+                <div id="tab-content-wrapper" ng-include="currentTab.content">
+                </div>
+                
+            </div>
+        </div>
+        
+        <div id="wrapper" ng-controller="MainController">
+            
+            <div id="header">
+                <div id="guide" ng-click="showPause()">Menu</div>
+                <div id="info">Score {{mainManager.displayScore || 0}}</div>
+            </div>
+            
+            <div id="body">
+                <div id="title" style="color: {{mainManager.titleColor}}">{{screen.title}}</div>
+
+                <div id="game-bar" ng-include="gameManager.getbarUrl()"></div>
+
+                <table id="grid" class="{{screen.class}}" ng-class="{'hide': mainManager.hideGrid}" ng-include="screen.content"></table>
+            </div>
+            
+            <div id="footer">                
+                <div id="added" class="progress-bar" color="gold" before="+" 
+                     value="{{ gameManager.getScore() }}" percent="{{ gameManager.getScorePerc() }}" 
+                     flash='[[0, "red", "white"], [15, "red"], [30, "orangered"], [60, "gold"]]'></div>
+                
+                <div id="multi" class="progress-bar" align="right" color="cornflowerblue" before="x"                     
+                     value="{{ gameManager.getMulti() }}" percent="{{ gameManager.getMultiPerc() }}"
+                     fade='[[0, "white"], [100, "cornflowerblue"]]'></div>
+            </div>            
+        </div> 
+        
+        
+                
+    </body>
+</html>

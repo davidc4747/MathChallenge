@@ -1,0 +1,181 @@
+//    Created on : Apr 9, 2015, 8:43:30 AM
+//    Author     : David Chung
+
+//Colors
+$tabColor: $white;
+$tabBackground: #24279D;//#0A222B;
+$tabHover: #245D9D;
+$tabActive: cornflowerblue;
+
+/***Tabs***/
+#tabs
+{
+    padding: 0;
+    margin: 0;
+    
+    color: $white;
+    background-color: $tabBackground;
+    
+    font-size: 1.5em;
+    text-align: center;
+    list-style-type: none;
+    
+    height: 2.6em;
+        
+    @include user-select(none);
+}
+
+.tab
+{
+    padding: 0.7em 1.3em;
+    
+    color: #1B3378; 
+
+    display: inline-block;
+    cursor: pointer;
+
+    &.enabled
+    {
+        color: $white;         
+    }
+    &:before
+    {
+        font-family:'FontAwesome';    
+
+        @include transition(all 0.5s);
+    }
+    &.active
+    {
+        color: $tabActive;
+        text-shadow: 0 0 20px $tabActive;            
+    }
+    &:hover, &:focus
+    {
+        color: $tabHover;
+        text-shadow: 0 0 20px $tabHover;
+    }
+}
+
+/***Puase Menu Icons***/
+.tab.pause-menu:before{ content: "\f11b"; }
+.tab.profile:before{ content: "\f1ae"; }
+.tab.shop:before{ content: "\f06b"; }
+.tab.achievement:before{ content: "\f091"; }
+.tab.friends:before{ content: "\f0c0"; }
+.tab.history:before{ content: "\f133"; }
+.tab.settings:before{ content: "\f013"; }
+
+#show-menu, #mini-bar
+{
+    display: none;
+}
+
+%center
+{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    
+    @include translate(-50%, -50%);    
+}
+%tab-content
+{
+    @extend %center;
+    width: 50%;  
+    @include transition(width 0.35s);
+}
+
+@media (max-width: 34.375em) // 550px
+{
+    %tab-content {width: 60%;}
+}
+@media (max-width: 28.125em) // 450px
+{
+    %tab-content {width: 73%;}
+}
+@media (max-width: 21.875em)// 350px
+{
+    %tab-content {width: 88%;}
+}
+
+#tab-content-wrapper
+{ 
+    overflow: auto;
+    
+    height: 26.1em;
+}
+
+.tab-content-h1
+{
+    margin-bottom: 0em;
+    text-align: center;
+    
+    &:after
+    {
+        font-family: 'FontAwesome'; 
+        margin-left: 0.3em;  
+    }   
+}
+
+.left { float: left; }
+.right { float: right; }
+
+
+.pause-header 
+{
+    margin: 0;
+    padding-left: 0.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border-bottom: 3px solid $darkGrey;
+    color: $white;
+    background-color: $offBlue;    
+    @include simple-gradient(lighten($offBlue, 5%), $offBlue);   
+}
+.pause-list
+{
+    overflow: auto;
+    
+    margin: 0;
+    margin-bottom: 0.5em;
+    padding: 0;
+    border: 1px solid $darkGrey;    
+    
+    list-style-type: none;  
+}
+.pause-list-item 
+{    
+    overflow: hidden;
+    
+    margin: 0.3em;
+    border: 1px solid $darkGrey;
+    
+    min-height: 1em;
+        
+    background-color: $lightGrey;
+    @include simple-gradient(lighten($lightGrey, 5%), $lightGrey);
+}
+
+.total-questions
+{
+    &:after{ content: ' questions'; }    
+}
+.total-time
+{    
+    &:after { content: ' mins'; }    
+}
+.game-energy
+{
+    color: $offBlue;
+    &:before{ content: '+'; }
+}
+
+@import "login.scss";
+@import "score-card.scss";
+
+@import "pause-menu.scss";
+@import "profile.scss";
+@import "shop.scss";
+@import "friends.scss";
+@import "history.scss";
+@import "settings.scss";

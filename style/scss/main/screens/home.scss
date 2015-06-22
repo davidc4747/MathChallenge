@@ -1,0 +1,60 @@
+//    Created on : Apr 9, 2015, 1:49:39 PM
+//    Author     : David Chung
+
+/***Home Menu grid***/
+#grid.menu
+{
+    overflow: auto;
+    display: block;
+    max-height: 20em;
+    
+    *
+    {
+        display: block;
+    }
+    tr
+    {
+        overflow: hidden;
+        background-color: #e2e2e2; 
+    }
+    
+    td
+    {
+        background-color: #fbfbfb;
+        float: left;
+        width: 98.5%;
+        padding: 0.5em;
+        margin: 0.06em 0.2em;
+
+        @extend %box-border;
+    }
+    
+    .title
+    {
+        font-size: 1.2em;
+    }
+    .descrip
+    {
+        display: none;
+    }
+}
+
+@media(min-width: 25em)
+{
+    #grid.menu 
+    {
+        .title
+        {
+            float: left;
+            font-size: 1.2em;
+        }
+        .descrip
+        {
+            float: right;
+            display: block;
+
+            font-size: 0.8em;
+        }  
+    }
+}
+

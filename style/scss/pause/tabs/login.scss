@@ -1,0 +1,75 @@
+//    Created on : Apr 9, 2015, 8:58:28 AM
+//    Author     : David Chung
+
+/***Pause -Login-***/
+#login.tab-content
+{
+    @extend %tab-content;
+    .tab-content-h1:after
+    {
+        font-family: 'FontAwesome';
+        content: '\f11c';        
+    }
+    #txt-user-name, #txt-password
+    {
+        float: left;
+        margin: 0.2em 0;
+
+        width: 100%;
+        @extend %box-border;
+    }  
+    #btn-register, #btn-login
+    {
+        float: left;
+        margin: 0.5em 0;
+        width: 50%;
+    }
+}
+
+.link-forgot-pass
+{
+    display: block;
+    text-align: right;
+}
+
+/***Register, Forgot password***/
+#register.tab-content, #forgotPass.tab-content
+{
+    @extend %tab-content;
+    .control-txt, .control-btn
+    {
+        width: 100%;
+    }
+    .control-btn
+    {
+        margin: 0;
+    }
+}
+
+.register-head
+{
+    &:after
+    {
+        content: '\f044';
+    }
+}
+.have-account
+{
+    margin: 0.2em 0;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.forgot-head
+{
+    &:after
+    {
+        content: '\f084';        
+    }
+}
+
+
+.pleaseLogin.tab-content
+{
+    @extend %tab-content;
+}

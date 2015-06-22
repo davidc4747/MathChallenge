@@ -1,0 +1,46 @@
+//    Created on : Jun 8, 2015, 10:25:30 AM
+//    Author     : David G Chung
+
+@import "../colors.scss";
+@import "../css3.scss";
+
+/**vetical center***/
+#profile.tab-content
+{
+    > *
+    {
+        float: none; 
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/***Game History***/
+.game-stats
+{
+    width: 18.75em;    
+}
+
+/***Profile mobile***/
+.stat-link
+{
+    float: none;
+    margin: 0;
+    text-align: center;
+}
+
+.game-type-summary
+{
+    margin: 0;
+}
+.game-type
+{
+    width: 50%;
+}
+
+/***Settings mobile***/
+.settings-section
+{
+    width: 73%;
+    margin: 0 auto;
+}

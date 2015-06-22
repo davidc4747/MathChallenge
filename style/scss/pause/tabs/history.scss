@@ -1,0 +1,173 @@
+//    Created on : Apr 15, 2015, 12:01:37 PM
+//    Author     : David chung
+
+/***Pause -History-***/
+#history.tab-content
+{
+    padding: 0.5em;
+}
+
+/**Games**/
+#games
+{
+    @extend .pause-list;
+    
+    height: 24em;
+    width: 100%;
+}
+.game
+{
+    overflow: hidden;
+    
+        
+    &.active .game-body
+    {
+        max-height: 40em;
+    }
+    
+    &.active .game-head
+    {
+        border-color: $offBlue;
+        background-color: $offBlue;
+        @include simple-gradient(lighten($offBlue, 15%), lighten($offBlue, 5%));
+    }
+    
+    &.active .game-chart-svg
+    {
+        width: 100%;
+    
+        @include transition(width 1s linear 0.35s); 
+    }
+    
+}
+.game-head
+{
+    @extend .pause-list-item;
+    display: block;
+    
+    padding: 0.2em;
+    margin: 0.1em 0;
+    
+    cursor: pointer;
+    
+    @include transition(all 0.5s);
+}
+
+.game-name
+{
+    margin: 0;
+    margin-bottom: 0.2em;
+}
+.game-grade
+{
+    font-size: 0.8em;
+    
+    &:before{ content: ' ('; }
+    &:after{ content: '%)'; }
+}
+.game-score
+{
+    margin-left: 0.3em;
+    &:after { content:' pts'; }
+}
+
+.game-head .question-stats, .game-date
+{
+    margin: 0.2em 0;
+    text-align: right;
+}
+.question-stats
+{
+    overflow: hidden;
+    margin-top: 0.3em;
+    
+    .incorrect, .correct, .timeout
+    {
+        display: inline-block;
+        margin-left: 0.2em;
+        &:before { font-family: 'FontAwesome'; }
+    }
+    .incorrect
+    {
+        color: $red;
+        &:before { content: '\f00d'; }
+    }
+    .correct
+    {
+        color: $green;
+        &:before { content: '\f00c'; }
+    }
+    .timeout
+    {
+        color: $black;
+        &:before { content: '\f068'; } 
+    }
+}
+
+
+/*Game Body*/
+.game-body
+{
+    overflow: hidden;
+    
+    margin-bottom: 0;
+    border: 1px solid $darkGrey;
+    
+    position: relative;
+    height: auto;
+    max-height: 0;
+    
+   @include transition(max-height 0.8s linear); 
+}
+
+.game-stats
+{
+    margin: 1.5em auto;
+    width: 60%;
+    
+    .total-questions { float: left; }
+    .total-time { float: right; }
+    .stars
+    {
+        clear: left;
+        float: left;
+        
+        margin-top: 0.2em;
+        padding: 0.15em 0.3em;
+        border-radius: 10px;
+        
+        height: 1.5em;
+        background-color: $darkGrey;
+        @extend %box-border;
+    }
+    .game-energy
+    {
+        clear: right;
+        float: right;
+        margin-top: 0.4em;
+        text-align: right;
+    }
+}
+
+.stat-table
+{
+    width: 100%;
+}
+
+.game-chart
+{    
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.game-chart-svg
+{
+    overflow: hidden;
+    
+    width: 0;
+    height: 100%;
+}

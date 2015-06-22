@@ -1,0 +1,164 @@
+//    Created on : Apr 15, 2015, 10:43:51 AM
+//    Author     : David Chung
+
+/***Pause -Friends-***/
+#friends.tab-content
+{
+    padding: 0.5em;
+    height: 95%;
+    
+    form
+    {
+        overflow: hidden;
+    }
+}
+#friends-header
+{
+    @extend .pause-header;
+    padding-left: 0.4em;
+}
+
+#friend-list
+{
+    @extend .pause-list;
+    height: 21.5em;
+}
+
+.friend-divider
+{
+    margin-top: 0.9em;
+}
+
+/**Friend card**/
+.friend-card
+{
+    @extend .pause-list-item;
+    
+    &.active
+    {
+        border: 1px solid lighten(#2956B2, 20%);
+        box-shadow: 0 0 5px #2956B2;
+    }
+}
+.min
+{
+    @extend .friend-card;
+    
+    padding: 0.3em;
+    font-size: 1.3em;
+    background-color: $darkGrey;
+    border-color: darken($darkGrey, 15%);
+    @include simple-gradient(lighten($darkGrey, 5%), $darkGrey);
+    
+    .fa
+    {
+        @extend .btn;
+        
+        font-family: 'FontAwesome';
+    }
+}
+.friend-avatar
+{
+    float: left;
+    margin-right: 0.3em;
+    padding: 0.2em;
+        
+    height: 3.2em;
+    min-width: 40px;
+    
+    background-color: $lightBlack;
+}
+.friend-name
+{
+    margin: 0;
+    margin-bottom: 0.2em;
+    background-color: $darkGrey;
+    @include simple-gradient(lighten($darkGrey, 5%), $darkGrey);
+    
+    .stars
+    {
+        float: right;
+        margin-right: 0.4em;
+        height: 0.8em;
+    }
+    
+}
+
+
+/***Friend Requests***/
+.received-request
+{
+    @extend .min;
+    
+    background-color: $lightGrey;
+    border-color: darken($lightGrey, 15%);
+    @include simple-gradient(lighten($lightGrey, 5%), $lightGrey);
+}
+.sent-request
+{
+    @extend .min;
+}
+
+.btn-request 
+{
+    float: right;
+    margin: 0 0.3em;
+}
+.btn-request-accept { color: $green; }
+.btn-request-decline { color: $red; }
+
+
+/**Friend Form**/
+.btn
+{
+    cursor: pointer;
+}
+
+.btn, .txt-search
+{    
+    &:before
+    {
+        font-family:'FontAwesome';        
+    }  
+}
+.txt-search, .btn-search
+{
+    height: 1.4em;
+}
+.btn-search
+{
+    border: 1px solid $darkGrey;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    
+    position: relative;
+    width: 1.5em;
+        
+    &:before { @extend %center; content: '\f002'; }    
+}
+
+.btn-remove-friend  
+{    
+    &:before { content: '\f235'; }
+}
+.btn-add-friend  
+{    
+    &:before { content: '\f234'; }
+}
+
+.btn-add-friend, .btn-remove-friend
+{
+    font-size: 0.8em;
+    margin: 0 0.8em;
+    float: right;        
+}
+
+.btn-search, .txt-search
+{
+    float: left;
+}
+
+.txt-search
+{
+    width: 50%;
+}    

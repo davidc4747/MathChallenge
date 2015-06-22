@@ -1,0 +1,130 @@
+//    Created on : Jun 8, 2015, 11:53:30 AM
+//    Author     : David G Chung
+
+@import "../colors.scss";
+@import "../css3.scss"; 
+
+/***Pause drop down mobile***/
+#pause
+{
+    margin-top: 0px;
+    border-radius: 0px;
+    height: 100%;
+}
+
+/***Pause tab navigation***/
+#mini-bar
+{
+    display: block;
+    overflow: hidden;
+    padding: 0.25em;
+    padding-left: 1.4em;
+    border-bottom: 2px solid $black;
+    
+    color: $white;
+    background-color: $offBlue;
+    
+    font-family:'FontAwesome';   
+    font-size: 1.5em;
+    
+    &:before
+    {
+        content: '\f015';//f0c9
+        position: absolute;
+        left: 0.3em;
+    }
+}
+#tabs
+{
+    overflow: hidden;
+    
+    max-height: 0px;
+    height: auto;
+    width: 100%;
+    position: absolute;
+    
+    z-index: 5;
+    text-align: center;
+    
+    @include transition(max-height 0.35s);
+}
+input[type=checkbox]:checked ~ #tabs
+{
+    max-height: 10em;
+    border-bottom: 1px solid $black;
+    
+    box-shadow: 0px 3px 10px 0px $black;
+} 
+
+
+/***Pause Menu Content mobile***/
+#tab-content-wrapper
+{
+    height: 90%;
+    @include calc('height', '100% - 41px');
+}
+
+/***Profile mobile***/
+.game-type-summary
+{
+    text-align: center;
+}
+
+/***Shope mobile***/
+.shop-list
+{
+    width: 100%;
+    border: none;
+}
+.preview.show
+{
+    width: 14em;
+    box-shadow: -1px 0 10px 1px $black;
+}
+.preview-toggle
+{
+    display: block;
+}
+
+/***Friends list mobile***/
+#friend-list
+{
+    height: 90%;
+}
+
+/***Game History mobile***/
+#games
+{
+    height: 90%;
+}
+
+/***Settings mobile***/
+#settings.tab-content
+{
+    .control-label, .control-txt, .control-btn
+    {        
+        float: none;
+        margin: 0;
+        width: 100%;
+    }
+    .control-label
+    {
+        display: block;
+        text-align: center;
+    }
+}
+
+
+
+/***Score Card mobile***/
+#score-card
+{ 
+    .right, .left
+    {
+        padding: 0;
+        margin: 0;
+        border: none;
+        
+        width: 98%;
+    }
+}

@@ -1,0 +1,88 @@
+//    Created on : Jun 8, 2015, 10:24:45 AM
+//    Author     : David G Chung
+
+@import "../colors.scss";
+@import "../css3.scss";
+
+/**vetical center***/
+#profile.tab-content
+{
+    > *
+    {
+        float: none; 
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/***Pause Menu mobile***/
+#pause-menu.tab-content
+{
+    text-align: center;
+}
+
+/***Profile mobile***/
+#user-avatar
+{
+    float: none;
+    margin: 0.3em auto;
+}
+.stat-link
+{
+    float: none;
+    margin: 0;
+    text-align: center;
+}
+.game-type-summary
+{
+    margin: 0;
+}
+.game-type
+{
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/***Friends Menu mobile***/
+#friends.tab-content
+{
+    .stars { display: none;}
+}
+
+/***Game History mobile***/
+.game-stats
+{
+    width: 98%;
+    
+    > *
+    {
+        float: none; 
+        width: 100%; 
+        text-align: center; 
+    }
+    .game-energy
+    {
+        text-align: center;
+    }
+}
+
+
+/***User stats mobile***/
+.user-stats
+{
+    width: 88%;
+}
+.stat-key, .stat-value
+{
+    float: none;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/***Score card mobile***/
+#questions tbody
+{
+    overflow: visible;
+}

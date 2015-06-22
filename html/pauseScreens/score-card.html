@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<div id="score-card" class="tab-content" ng-controller="ScoreCardController">
+    <div class="left">
+        <div id="grade"></div>
+        <ol id="high-scores">
+            <li ng-animate ng-repeat="score in topScores" ng-class="{'active': (score.TopScores == gData.TotalScore) }">{{ score.TopScores | number }}</li>
+        </ol>
+    </div>
+
+    <div class="right">
+        <div id="question-stats"></div>
+
+        <h1 id="final-score" tween-num="{{ gData.TotalScore }}"></h1>
+        <h2 class="total-time" tween-num="{{ gData.TotalTime / 60 }}" decimals="2"></h2>
+        
+        <div class="calc-stats">
+            <div class="energy">{{ gData.EnergyGained }}</div>            
+            
+            <div class="stars">
+                <img class="star" ng-src="images/star/star{{gData.Stars / 2 | number: 0}}.png" ng-repeat="star in gData.starRange" />
+            </div>
+        </div>
+        
+        <div id="best-stats">
+            <h3 id="best-time" tween-num="{{ gData.MinTime }}" decimals="2"></h3>
+            <h3 id="best-score" tween-num="{{ gData.MaxScore }}"></h3>
+            <h3 id="best-multi" tween-num="{{ gData.MaxMulti }}"></h3>
+        </div>
+
+
+        <table id="questions">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Your Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-animate ng-repeat="ques in questions">
+                    <td class="question">{{ ques.Question_Text }} = {{ ques.CorrectAnswer }}</td>
+                    <td class="player-answer {{ ques.AnswerType_Name }}">{{ ques.Number }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>                        
+</div>

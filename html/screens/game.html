@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<tr ng-repeat="answerRows in gameManager.getAnswerRows()">
+    <td ng-repeat="answer in answerRows track by $index" 
+        ng-click="checkAnswer($event, answer)">{{answer | number}}</td>
+</tr>

@@ -1,0 +1,48 @@
+//    Created on : Apr 13, 2015, 11:15:41 AM
+//    Author     : David Chung
+
+//Colors
+$moveShadow: $black;
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+
+.move-ani
+{
+    position: absolute;
+    font-size: 1.35em;
+    
+    text-shadow: 0 0 20px $moveShadow;
+    
+    @include user-select(none);
+    @include transition(position 1s);
+}
+
+.word-ani
+{
+    color: $black;
+    position: absolute;
+    
+    font-size: 1.35em;
+    font-family: 'Pacifico', cursive;
+    text-shadow: 0 0 20px $white;
+    
+    @include animation(shake 1s linear infinite);
+    
+    @include user-select(none);
+}
+
+$degree: 20deg;
+@-webkit-keyframes shake 
+{
+    0%   { color: $blue; @include transform(rotate($degree)); }
+    25%  { @include transform(rotate(-$degree)); }
+    50%  { @include transform(rotate($degree)); }
+    100% { @include transform(rotate(-$degree)); }
+}
+@keyframes shake 
+{
+    
+    0%   { color: $blue; @include transform(rotate($degree)); }
+    25%  { @include transform(rotate(-$degree)); }
+    50%  { @include transform(rotate($degree)); }
+    100% { @include transform(rotate(-$degree)); }    
+}

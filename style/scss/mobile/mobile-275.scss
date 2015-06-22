@@ -1,0 +1,117 @@
+//    Created on : Jun 8, 2015, 8:55:45 PM
+//    Author     : David G Chung
+
+@import "../colors.scss";
+@import "../css3.scss";
+
+/**vetical center***/
+#profile.tab-content, .game-head, .game-stats
+{
+    > *
+    {
+        float: none; 
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/***Pause Menu mobile***/
+#pause-menu.tab-content
+{
+    text-align: center;
+}
+
+/***Profile mobile***/
+#user-avatar
+{
+    float: none;
+    margin: 0.3em auto;
+}
+.stat-link
+{
+    float: none;
+    margin: 0;
+    text-align: center;
+}
+.game-type-summary
+{
+    margin: 0;
+}
+.game-type
+{
+    float: none;
+    margin: 0 auto;
+    width: 90%;
+}
+
+/***Shope mobile***/
+.shop-list
+{
+    width: 100%;
+    border: none;
+}
+.preview.show
+{
+    width: 100%;
+}
+
+/***Friends Menu mobile***/
+#friends.tab-content
+{
+    .stars { display: none;}
+}
+
+/***Game History mobile***/
+.game-head .question-stats
+{
+    float: none; 
+    width: 100%;
+    text-align: center;    
+}
+.game-date, .stat-table
+{
+    display: none;
+}
+.game-stats
+{
+    overflow: hidden;
+    
+    width: 98%;
+    
+    top: 0.5em;
+    left: 0;
+    @include translate(0, 0);
+    
+    .game-energy
+    {
+        text-align: center;
+    }
+}
+
+/***Score Card***/
+#final-score
+{
+    font-size: 3em;
+}
+#score-card.tab-content .total-time
+{
+    font-size: 1.3em;
+}
+.calc-stats
+{
+    .energy, .stars
+    {
+        float: none;
+        text-align: center;
+    }
+}
+.question
+{
+    clear: left;
+}
+
+/***Score card mobile***/
+#questions tbody
+{
+    overflow: visible;
+}

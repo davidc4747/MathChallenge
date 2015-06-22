@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<div id="settings" class="tab-content" ng-controller="SettingsController">
+    <h1 class="pause-header">Settings</h1>
+    
+    
+    <form id="update-user" class="settings-section" ng-submit="updateUser()">        
+        <div class="control-group">
+            <label class="control-label" for="new-username">Username</label>
+            <input id="new-username" class="control-txt" type="text" maxlength="15" ng-model="temp.UserName" />
+        </div>                
+        <div class="control-group">
+            <label class="control-label" for="new-email">Email</label>
+            <input id="new-email" class="control-txt" type="text" maxlength="50" ng-model="temp.Email" />
+        </div>         
+        <div class="control-group">
+            <label class="control-label" for="new-email">Age</label>
+            <input id="age" class="control-txt" type="number" ng-model="temp.Age"/>
+        </div>
+        <div ng-class="(userResult.Mess != '') ? userResult.MessType : ''">{{ userResult.Mess }}</div>
+        <input id="update-user-btn" class="btn control-btn" type="submit" value="Save Changes"/>
+    </form>
+    
+    
+    <form id="change-password" class="settings-section" ng-submit="updatePass()">
+        <div class="control-group">
+            <label class="control-label" for="old-password">Current password</label>
+            <input id="old-password" class="control-txt" type="password" maxlength="25" ng-model="pass.cur"/>
+        </div>  
+        <div class="control-group">
+            <label class="control-label" for="new-password">New password</label>
+            <input id="new-password" class="control-txt" type="password" maxlength="25" ng-model="pass.new"/>
+        </div>  
+        <div class="control-group">
+            <label class="control-label" for="re-new-password">Confirm new password</label>
+            <input id="re-new-password" class="control-txt" type="password" maxlength="25" ng-model="pass.confirmNew"/>
+        </div>
+        <div  ng-class="(passResult.Mess != '') ? passResult.MessType : ''">{{passResult.Mess}}</div>
+        <input id="change-password-btn" class="btn control-btn" type="submit" value="Update password"/>
+        
+    </form>
+    
+</div>
+
